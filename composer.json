@@ -1,0 +1,19 @@
+{
+    "name": "naufkia/kyaaaa-php",
+    "description": "Kyaaaa Weird PHP Framework",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "naufkia"
+        }
+    ],
+    "require": {
+        "php": "^7.3|^8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Core\\": ["core/"]
+        }
+    },
+    "minimum-stability": "dev"
+}

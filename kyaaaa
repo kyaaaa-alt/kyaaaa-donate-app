@@ -1,0 +1,24 @@
+#!/usr/bin/env php
+<?php
+$host = 'localhost';
+$port = (int) 5555;
+
+$minPhpVersion = '7.4';
+if (version_compare(PHP_VERSION, $minPhpVersion, '<')) {
+    $message = sprintf(
+        'Your PHP version must be %s or higher. Current version: %s',
+        $minPhpVersion,
+        PHP_VERSION
+    );
+    exit($message);
+}
+error_reporting(-1);
+ini_set('display_errors', '1');
+
+define('FCPATH', __DIR__ . '/public' . DIRECTORY_SEPARATOR);
+
+$php  = PHP_BINARY;
+
+$docroot = escapeshellarg(FCPATH);
+echo "Kyaaaa~ starting server... don't forget take ur coffe before start!" . PHP_EOL;
+passthru($php . ' -S ' . $host . ':' . $port . ' -t ' . $docroot);
