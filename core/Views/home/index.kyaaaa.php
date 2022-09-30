@@ -7,13 +7,13 @@
         </div>
         <h3>@<?= $username ?></h3>
         <div class="text-center">
-            <img width="25" height="25" src="<?= url('assets/home/img') ?>/instagram.svg" />
-            <img width="25" height="25" src="<?= url('assets/home/img') ?>/youtube.svg" />
-            <img width="25" height="25" src="<?= url('assets/home/img') ?>/facebook.svg" />
-            <img width="25" height="25" src="<?= url('assets/home/img') ?>/in.svg" />
-            <img width="25" height="25" src="<?= url('assets/home/img') ?>/twitch.svg" />
-            <img width="25" height="25" src="<?= url('assets/home/img') ?>/twitter.svg" />
-            <img width="25" height="25" src="<?= url('assets/home/img') ?>/github.svg" />
+            <img width="25" height="25" src="<?= url('assets/img') ?>/instagram.svg" />
+            <img width="25" height="25" src="<?= url('assets/img') ?>/youtube.svg" />
+            <img width="25" height="25" src="<?= url('assets/img') ?>/facebook.svg" />
+            <img width="25" height="25" src="<?= url('assets/img') ?>/in.svg" />
+            <img width="25" height="25" src="<?= url('assets/img') ?>/twitch.svg" />
+            <img width="25" height="25" src="<?= url('assets/img') ?>/twitter.svg" />
+            <img width="25" height="25" src="<?= url('assets/img') ?>/github.svg" />
         </div>
     </div>
     <div class="donate-blue">
