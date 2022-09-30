@@ -8,9 +8,16 @@ class HomeCtrl {
     }
 
     public function index() {
+        $username = $this->HomeModel->get_username();
+        $data['title'] = 'Dukung @' . $username;
+        $data['username'] = $username;
+        return view('home/index', $data);
+    }
+
+    public function login() {
         $data['title'] = 'Hello World';
         $data['subtitle'] = 'Kyaaaa-PHP Framework';
-        return view('home', $data);
+        return view('home/index', $data);
     }
 
 }
