@@ -16,7 +16,7 @@ class Database {
         $config = [
             'driver'        =>  'mysql',
             'host'          =>  '127.0.0.1',
-            'database'      =>  'kyaaaa_db',
+            'database'      =>  'donateapp_db',
             'username' 	    =>  'root',
             'password'      =>  '',
             'port'          =>  3306,
