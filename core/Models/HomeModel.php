@@ -7,10 +7,10 @@ class HomeModel {
         $this->users = DB::query('users');
     }
 
-    public function get_users_active() {
+    public function get_username() {
         $builder = $this->users;
-        $builder->select('*');
-        $query = $builder->get();
+        $builder->select('username');
+        $query = $builder->get()[0]->username;
         return $query;
     }
 
