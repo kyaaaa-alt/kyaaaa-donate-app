@@ -37,16 +37,16 @@ class AdminCtrl {
                     $this->session->set($sessiondata);
                     return redirectTo(url('dashboard'));
                 } else {
-                    $this->session->flash('notif', 'invalid role');
+                    $this->session->flash('error', 'invalid role');
                     return redirectTo(url('login'));
                 }
 
             } else {
-                $this->session->flash('notif', 'Password/Email Salah!');
+                $this->session->flash('error', 'Password/Email Salah!');
                 return redirectTo(url('login'));
             }
         } else {
-            $this->session->flash('notif', 'Password/Email Salah!');
+            $this->session->flash('error', 'Password/Email Salah!');
             return redirectTo(url('login'));
         }
     }
@@ -63,6 +63,68 @@ class AdminCtrl {
         $data['settings'] = $this->AdminModel->get_settings();
         $data['users'] = $this->AdminModel->get_users();
         return view('settings/index', $data);
+    }
+
+    public function update_profile() {
+        $file = $this->request->file('avatar');
+        if ($this->request->getFileSize($file) != 0) {
+            if ($this->request->getFileSize($file) >= 5) {
+                $this->session->flash('error', 'Avatar Max Size 5MB');
+                redirectTo(url('dashboard/settings'));
+            }
+            $path = 'assets/img';
+            $newfilename = 'avatar.png';
+            $moveFile = $this->request->move($file, $path, $newfilename, true);
+        }
+
+        $data['name'] = $this->request->post('name');
+        $data['username'] = $this->request->post('username');
+        $data['email'] = $this->request->post('email');
+        if (!empty($this->request->post('password'))) {
+            $data['password'] = password_hash($this->request->post('password'), PASSWORD_DEFAULT);
+        }
+        if (!empty($this->request->post('ig'))) {
+            $data['ig'] = $this->request->post('ig');
+        }
+        if (!empty($this->request->post('fb'))) {
+            $data['fb'] = $this->request->post('fb');
+        }
+        if (!empty($this->request->post('twitter'))) {
+            $data['twitter'] = $this->request->post('twitter');
+        }
+        if (!empty($this->request->post('yt'))) {
+            $data['yt'] = $this->request->post('yt');
+        }
+        if (!empty($this->request->post('twitch'))) {
+            $data['twitch'] = $this->request->post('twitch');
+        }
+        if (!empty($this->request->post('github'))) {
+            $data['github'] = $this->request->post('github');
+        }
+        if (!empty($this->request->post('linkedin'))) {
+            $data['linkedin'] = $this->request->post('linkedin');
+        }
+        $update = $this->AdminModel->update_profile($data);
+        if ($update) {
+            $this->session->flash('success', 'Saved!');
+            redirectTo(url('dashboard/settings'));
+        } else {
+            $this->session->flash('error', 'Failed!');
+            redirectTo(url('dashboard/settings'));
+        }
+    }
+
+    public function update_stream() {
+        $file = $this->request->file('notif');
+        if ($this->request->getFileSize($file) != 0) {
+            if ($this->request->getFileSize($file) >= 5) {
+                $this->session->flash('error', 'Max Size 5MB');
+                redirectTo(url('dashboard/settings'));
+            }
+            $path = 'assets/img';
+            $newfilename = 'avatar.png';
+            $moveFile = $this->request->move($file, $path, $newfilename, true);
+        }
     }
 
 }
