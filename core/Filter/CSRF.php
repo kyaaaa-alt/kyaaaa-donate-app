@@ -20,4 +20,13 @@ class CSRF {
             exit();
         }
     }
+
+    public function update() {
+        if(!csrf()->isValidRequest()){
+            $session = session();
+            $session->flash('notif', 'invalid token');
+            redirectTo(url('dashboard/settings'));
+            exit();
+        }
+    }
 }
