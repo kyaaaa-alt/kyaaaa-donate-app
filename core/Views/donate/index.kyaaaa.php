@@ -75,12 +75,12 @@
                 $amount = 'Privacy';
                 $display = 'style="display:none;"';
             } else {
-                $amount = Rp . ' ' . number_format($row->amount,0,',','.');
+                $amount = Rp . ' ' . number_format(esc($row->amount),0,',','.');
                 $display = '';
             }
-            $contributor = $row->customer_name;
-            $date = $row->created_at;
-            $msgs = $row->msgs;
+            $contributor = esc($row->customer_name);
+            $date = esc($row->created_at);
+            $msgs = esc($row->msgs);
 
         ?>
             <div class="contributors mb-8">
