@@ -76,6 +76,15 @@ input::placeholder {
     top: 2px;
     content: '$'; }
 
+.input-group select:hover {
+    background-color: #4149bc; }
+
+.input-group select:before {
+    position: absolute;
+    left: 6px;
+    top: 2px;
+    content: '$'; }
+
 .input-group {
     width: 98.30%;
     margin-bottom:2px;
@@ -100,6 +109,30 @@ input::placeholder {
     background-color: #4149bc; }
 
 .input-group input:before {
+    position: absolute;
+    left: 6px;
+    top: 2px;
+    content: '$'; }
+
+.input-group select {
+    position: relative;
+    color: #FFF;
+    font-size: 17px;
+    font-weight: 500;
+    width: inherit;
+    text-align: center;
+    background-color: #171b24;
+    border: none;
+    padding: 13px 0;
+    transition: background-color 0.2s ease; }
+
+.input-group select:hover {
+    background-color: #4149bc; }
+
+.input-group select:focus {
+    background-color: #4149bc; }
+
+.input-group select:before {
     position: absolute;
     left: 6px;
     top: 2px;
@@ -429,6 +462,47 @@ ml-2
     font-size:13px;
 }
 
+.card {
+    background-color:#181b24;
+    padding:15px;
+    margin-left:15px;
+    margin-right:12px;
+}
+
+.card .header {
+    font-size:15px;
+    font-weight: 400;
+}
+
+.card .profit {
+    padding: 6px;
+    background-color: #4149bc;
+    font-size:16px;
+    color: #f2f2f2;
+}
+
+.card .footer {
+    font-size:12px;
+    color: #8c8d92;
+    font-weight: 500;
+}
+
+.block {
+    display: block;
+}
+
+.inline {
+    display: inline-block;
+}
+
+h4 {
+    font-weight: 400;
+    margin-left:15px;
+    margin-right:12px;
+    font-size: 15px;
+}
+
+
 .contributors-header {
     font-weight:500;
 }
@@ -439,6 +513,20 @@ ml-2
 
 .donation {
     background-color:#3650c0;
+    padding:2px;
+    padding-right:4px;
+    padding-left:4px;
+}
+
+.paid {
+    background-color:#3650c0;
+    padding:2px;
+    padding-right:4px;
+    padding-left:4px;
+}
+
+.unpaid {
+    background-color:#fa4348;
     padding:2px;
     padding-right:4px;
     padding-left:4px;
@@ -463,6 +551,34 @@ ml-2
 
 .mt-n8 {
     margin-top:-8px;
+}
+
+.mt-n10 {
+    margin-top:-10px;
+}
+
+.mt-n15 {
+    margin-top:-15px;
+}
+
+.mt-n20 {
+    margin-top:-20px;
+}
+
+.mt-n25 {
+    margin-top:-25px;
+}
+
+.mb-n3 {
+    margin-bottom:-3px;
+}
+
+.mb-n5 {
+    margin-bottom:-5px;
+}
+
+.mb-n8 {
+    margin-bottom:-8px;
 }
 
 .swal2-title {
@@ -509,29 +625,6 @@ ml-2
     margin-right:33px;
 }
 
-/*ul.pagination {*/
-/*    display: inline-block;*/
-/*    padding: 0;*/
-/*    margin: 0;*/
-/*}*/
-
-/*ul.pagination li {display: inline;}*/
-
-/*ul.pagination li a {*/
-/*    color: #fff;*/
-/*    float: left;*/
-/*    padding: 8px 16px;*/
-/*    text-decoration: none;*/
-/*    transition: background-color .3s;*/
-/*    border: 1px solid #ddd;*/
-/*}*/
-
-/*ul.pagination li a.active {*/
-/*    background-color: #4CAF50;*/
-/*    color: white;*/
-/*    border: 1px solid #4CAF50;*/
-/*}*/
-
 .pagination-container {
     width: 100%;
     display: flex;
@@ -562,4 +655,76 @@ ml-2
 .pagination-number.active {
     color: #fff;
     background: #3650c0;
+}
+
+.alert {
+    padding: 10px;
+    background-color: #e2777a;
+    color: #fff3cd;
+    margin: 0 auto;
+}
+
+#hideMe {
+    -moz-animation: hideMe 0s ease-in 3s forwards;
+    -webkit-animation: hideMe 0s ease-in 3s forwards;
+    -o-animation: hideMe 0s ease-in 3s forwards;
+    animation: hideMe 0s ease-in 3s forwards;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+}
+@keyframes hideMe {
+    to {
+        width:0;
+        height:0;
+        overflow:hidden;
+    }
+}
+@-webkit-keyframes hideMe {
+    to {
+        width:0;
+        height:0;
+        visibility:hidden;
+    }
+}
+
+
+.file-upload .file-upload-select {
+    display: block;
+    color: #dbdbdb;
+    cursor: pointer;
+    text-align: left;
+    background: #24282e;
+    overflow: hidden;
+    position: relative;
+
+}
+.file-upload .file-upload-select .file-select-button {
+    background: #181b24;
+    padding: 10px;
+    display: inline-block;
+}
+.file-upload .file-upload-select .file-select-name {
+    display: inline-block;
+    padding: 10px;
+}
+.file-upload .file-upload-select:hover .file-select-button {
+    background: #181b24;
+    color: #ffffff;
+    transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+}
+.file-upload .file-upload-select input[type="file"] {
+    display: none;
+}
+
+.link {
+    text-decoration: none;
+    color: #5398ff;
+    font-weight: 500;
+}
+
+.f12 {
+    font-size: 12px !important;
 }
