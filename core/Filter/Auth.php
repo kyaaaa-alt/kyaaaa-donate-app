@@ -1,4 +1,4 @@
-<?php namespace Core\Conf\Filter;
+<?php namespace Core\Filter;
 
 class Auth {
 
@@ -6,8 +6,8 @@ class Auth {
         $this->session = session();
     }
 
-    public function filter() {
-        if (!$this->session->has('isLogin')) {
+    public function admin() {
+        if (!$this->session->has('isAdmin')) {
             redirectTo(url('login'));
         }
     }
