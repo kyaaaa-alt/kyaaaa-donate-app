@@ -13,5 +13,6 @@
 <script src="<?= url('assets/js') ?>/custom.js"></script>
 <script src="<?= url('assets/js') ?>/sweetalert2.all.min.js"></script>
 <script src="<?= url('assets/js') ?>/swal_donate.js"></script>
+<script src="<?= url('assets/js') ?>/pagination.js"></script>
 </body>
 </html>
