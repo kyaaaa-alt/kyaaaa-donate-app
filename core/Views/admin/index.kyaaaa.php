@@ -1,87 +1,63 @@
 <div class="donate">
-    <div class="donate-black">
-        <div class="text-center">
-            <a href="https://twitter.com/twcloudchen" class="circle">
-                <img height="50" width="50" src="http://www.gravatar.com/avatar/9017a5f22556ae0eb7fb0710711ec125?s=128" alt="Cloud Chen">
-            </a>
-        </div>
-        <h3>@Udin</h3>
-        <div class="text-center">
-            <img width="25" height="25" src="<?= url('assets/home/img') ?>/instagram.svg" />
-            <img width="25" height="25" src="<?= url('assets/home/img') ?>/youtube.svg" />
-            <img width="25" height="25" src="<?= url('assets/home/img') ?>/facebook.svg" />
-            <img width="25" height="25" src="<?= url('assets/home/img') ?>/in.svg" />
-            <img width="25" height="25" src="<?= url('assets/home/img') ?>/twitch.svg" />
-            <img width="25" height="25" src="<?= url('assets/home/img') ?>/twitter.svg" />
-            <img width="25" height="25" src="<?= url('assets/home/img') ?>/github.svg" />
-        </div>
-    </div>
-    <div class="donate-blue">
-        <div class="donate-amount-box">
-            <div class="donate-amount">
-                <div class="input-group">
-                    <input autocomplete="off" type="text"  name="Nama" value="" placeholder="Nama Pengirim">
-                </div>
-                <div class="input-group">
-                    <input autocomplete="off" type="text"  name="Nama" value="" placeholder="Email Pengirim">
-                </div>
-                <div class="input-group mb-15">
-                    <input autocomplete="off" type="text"  name="Nama" value="" placeholder="Pesan Pengirim">
-                </div>
-                <div class="denomination selected">
-                    <input autocomplete="off" type="radio" id="amount5" value="10.000" checked="">
-                    <label for="amount5">10K</label>
-                </div>
-                <div class="denomination">
-                    <input autocomplete="off" type="radio" id="amount10" value="25.000">
-                    <label for="amount10">25K</label>
-                </div>
-                <div class="denomination">
-                    <input autocomplete="off" type="radio" id="amount15" value="50.000">
-                    <label for="amount15">50K</label>
-                </div>
-                <div class="denomination">
-                    <input autocomplete="off" type="radio" id="amount25" value="100.000">
-                    <label for="amount25">100K</label>
-                </div>
-                <div class="denomination">
-                    <input autocomplete="off" type="radio" id="amount50" value="200.000">
-                    <label for="amount50">200K</label>
-                </div>
-                <div class="denomination">
-                    <input autocomplete="off" type="radio" id="amount100" value="300.000">
-                    <label for="amount100">300K</label>
-                </div>
-                <div class="denomination-other">
-                    <input autocomplete="off" type="text" id="custom_amount" name="custom_amount" value="" placeholder="Ketik Manual Jumlah Donasi">
-                </div>
-                <input autocomplete="off" type="hidden" id="amount" name="amount">
-                <div class="donate-submit">
-                    <button type="submit" autocomplete="off">Donate Rp 10.000</button>
-                </div>
-            </div>
+    <div class="donate-black text-center">
+        <a href="<?= url('logout') ?>">
+            <img width="30" class="text-left mt-n10" src="<?= url('assets/img') ?>/logout.svg">
+        </a>
+        <h3 class="mb-n5 mt-n3 mr-25">DASHBOARD</h3>
 
-        </div>
+        <a href="<?= url('dashboard/settings') ?>">
+            <img width="30" class="text-right mt-n20" src="<?= url('assets/img') ?>/edit.svg">
+        </a>
     </div>
-    <div class="donate-black">
+    <div class="donate-blue text-center">
+        <h4 class="mt-n5">Hi, <?= session()->get('name') ?></h4>
+        <div class="card mt-n15">
+            <div class="header mb-8">Profit</div>
+            <span class="profit mt-25 mb-10">Rp 500.000</span>
+            <div class="footer mt-10">5/2 Donation</div>
+        </div>
+
+    </div>
+    <div class="donate-black container data">
         <h3 class="mt-n5">Contributors</h3>
-
-        <div class="contributors mb-8">
-            <div class="contributors-header mb-8">
-                Raisa Andriana <span class="donation"> Rp 50.000 </span>
-                <span class="delete text-right">
-              Hapus
-            </span>
+        <div id="paginated-list" class="page">
+        <?php foreach ($donations as $row) {
+            if ($row->private == yes) {
+                $amount = 'Privacy';
+                $display = 'style="display:none;"';
+            } else {
+                $amount = Rp . ' ' . number_format($row->amount,0,',','.');
+                $display = '';
+            }
+            $contributor = $row->customer_name;
+            $date = $row->created_at;
+            $msgs = $row->msgs;
+            $status = $row->status;
+            if ($status != 'PAID') {
+                $status_color = 'unpaid';
+            } else {
+                $status_color = 'paid';
+            }
+        ?>
+            <div class="contributors mb-8">
+                <div class="contributors-header mb-8">
+                    <div class="mb-5"><?= $contributor ?>   <span class="delete text-right inline">Hapus</span></div>
+                    <span class="<?= $status_color ?> mt-5 mr-3">  <?= $status ?> </span> <span class="donation mt-5">  <?= $amount ?> </span>
+                </div>
+                <div class="contributors-body mb-10" <?= $display ?>>
+                    <?= $msgs ?>
+                </div>
+                <div class="contributors-footer text-muted">
+                    <?= $date ?>
+                </div>
             </div>
-            <div class="contributors-body mb-10">
-                Selamat Kak
-            </div>
-            <div class="contributors-footer text-muted">
-                1 Hari yang lalu
-            </div>
+        <?php } ?>
         </div>
+        <nav class="pagination-container">
+            <button class="pagination-button" id="prev-button" title="Previous page">&lt;</button>
 
-
-
+            <button class="pagination-button" id="next-button" title="Next page">&gt;</button>
+        </nav>
     </div>
+
 </div>
