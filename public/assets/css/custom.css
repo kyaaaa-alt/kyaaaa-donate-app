@@ -221,8 +221,8 @@ ml-2
 *:focus {
     outline: none; }
 
-.mt-0 {
-    margin-top: 0px;
+.mt-1 {
+    margin-top: 1px;
 }
 
 .mt-3 {
@@ -481,4 +481,30 @@ ml-2
 
 .swal2-container.swal2-center>.swal2-popup {
     background-color: #24282e !important;
+}
+
+.expdate {
+    padding:5px;
+    color:#000;
+    background-color:#f8d339;
+    padding-left:6px;
+    padding-left:6px;
+    font-weight:500;
+}
+
+
+
+.qr {
+    width:100%;
+    max-width:360px;
+    padding-left:6px;
+    padding-left:6px;
+}
+
+.text-left {
+    float:left;
+}
+
+.logo {
+    margin-right:33px;
 }
