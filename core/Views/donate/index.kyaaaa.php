@@ -20,40 +20,41 @@
         <div class="donate-amount-box">
             <div class="donate-amount">
                 <form id="donate_form">
-                <div class="input-group">
-                    <input autocomplete="off" type="text" id="name" name="name" value="" placeholder="Nama" required>
-                </div>
-                <div class="input-group">
-                    <input autocomplete="off" type="email" id="email" name="email" value="" placeholder="Email" required>
-                </div>
-                <div class="input-group mb-15">
-                    <input autocomplete="off" type="text" id="msgs" name="msgs" value="" placeholder="Pesan" required>
-                </div>
-                <div class="denomination selected">
-                    <input autocomplete="off" type="radio" value="10.000" checked="">
-                    <label for="amount5">10K</label>
-                </div>
-                <div class="denomination">
-                    <input autocomplete="off" type="radio" value="25.000">
-                    <label for="amount10">25K</label>
-                </div>
-                <div class="denomination">
-                    <input autocomplete="off" type="radio"value="50.000">
-                    <label for="amount15">50K</label>
-                </div>
-                <div class="denomination">
-                    <input autocomplete="off" type="radio" value="100.000">
-                    <label for="amount25">100K</label>
-                </div>
-                <div class="denomination">
-                    <input autocomplete="off" type="radio" value="200.000">
-                    <label for="amount50">200K</label>
-                </div>
-                <div class="denomination">
-                    <input autocomplete="off" type="radio" value="300.000">
-                    <label for="amount100">300K</label>
-                </div>
-                <input autocomplete="off" type="hidden" id="amount" name="amount" value="10000">
+                    <?php csrf()->tokenField(); ?>
+                    <div class="input-group">
+                        <input autocomplete="off" type="text" id="name" name="name" value="" placeholder="Nama" required>
+                    </div>
+                    <div class="input-group">
+                        <input autocomplete="off" type="email" id="email" name="email" value="" placeholder="Email" required>
+                    </div>
+                    <div class="input-group mb-15">
+                        <input autocomplete="off" type="text" id="msgs" name="msgs" value="" placeholder="Pesan" required>
+                    </div>
+                    <div class="denomination selected">
+                        <input autocomplete="off" type="radio" value="10.000" checked="">
+                        <label for="amount5">10K</label>
+                    </div>
+                    <div class="denomination">
+                        <input autocomplete="off" type="radio" value="25.000">
+                        <label for="amount10">25K</label>
+                    </div>
+                    <div class="denomination">
+                        <input autocomplete="off" type="radio"value="50.000">
+                        <label for="amount15">50K</label>
+                    </div>
+                    <div class="denomination">
+                        <input autocomplete="off" type="radio" value="100.000">
+                        <label for="amount25">100K</label>
+                    </div>
+                    <div class="denomination">
+                        <input autocomplete="off" type="radio" value="200.000">
+                        <label for="amount50">200K</label>
+                    </div>
+                    <div class="denomination">
+                        <input autocomplete="off" type="radio" value="300.000">
+                        <label for="amount100">300K</label>
+                    </div>
+                    <input autocomplete="off" type="hidden" id="amount" name="amount" value="10000">
                 </form>
                 <div class="denomination-other">
                     <input autocomplete="off" type="text" id="custom_amount" name="custom_amount" value="" placeholder="Ketik Manual Jumlah Dukungan">
@@ -66,9 +67,9 @@
 
         </div>
     </div>
-    <div class="donate-black data">
+    <div class="donate-black container data">
         <h3 class="mt-n5">Contributors</h3>
-
+        <div id="paginated-list" class="page">
         <?php foreach ($donations as $row) {
             if ($row->private == yes) {
                 $amount = 'Privacy';
@@ -95,7 +96,12 @@
                 </div>
             </div>
         <?php } ?>
-
-
+        </div>
+            <nav class="pagination-container">
+                <button class="pagination-button" id="prev-button" title="Previous page">&lt;</button>
+                <div id="pagination-numbers"></div>
+                <button class="pagination-button" id="next-button" title="Next page">&gt;</button>
+            </nav>
     </div>
+
 </div>
