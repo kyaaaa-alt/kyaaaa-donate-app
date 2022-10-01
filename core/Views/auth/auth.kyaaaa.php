@@ -9,7 +9,7 @@
                 if ($session->has('notif')) {
             ?>
             <div class="text-center mb-25" id="hideMe">
-                <span class="alert"><?= $session->getFlash('notif'); ?></span>
+                <span class="alert"><?= $session->getFlash('error'); ?></span>
             </div>
             <?php } ?>
 
