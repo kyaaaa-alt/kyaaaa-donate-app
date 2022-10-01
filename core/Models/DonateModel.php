@@ -14,7 +14,9 @@ class DonateModel {
     public function get_donations() {
         $builder = DB::query('donations');
         $builder->select('*');
+
         $builder->where('status', 'PAID');
+        $builder->orderBy('id', 'DESC');
         $query = $builder->get();
         return $query;
     }
