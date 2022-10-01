@@ -22,13 +22,7 @@
         <h3 class="mt-n5">Contributors</h3>
         <div id="paginated-list" class="page">
         <?php foreach ($donations as $row) {
-            if ($row->private == yes) {
-                $amount = 'Privacy';
-                $display = 'style="display:none;"';
-            } else {
-                $amount = Rp . ' ' . number_format($row->amount,0,',','.');
-                $display = '';
-            }
+            $amount = Rp . ' ' . number_format($row->amount,0,',','.');
             $contributor = $row->customer_name;
             $date = $row->created_at;
             $msgs = $row->msgs;
@@ -41,10 +35,10 @@
         ?>
             <div class="contributors mb-8">
                 <div class="contributors-header mb-8">
-                    <div class="mb-5"><?= $contributor ?>   <span class="delete text-right inline">Hapus</span></div>
-                    <span class="<?= $status_color ?> mt-5 mr-3">  <?= $status ?> </span> <span class="donation mt-5">  <?= $amount ?> </span>
+                    <div class="mb-5"><?= $contributor ?>   <span class="<?= $status_color ?> text-right">  <?= $status ?> </span></div>
+                        <span class="donation mt-5">  <?= $amount ?> </span>
                 </div>
-                <div class="contributors-body mb-10" <?= $display ?>>
+                <div class="contributors-body mb-10">
                     <?= $msgs ?>
                 </div>
                 <div class="contributors-footer text-muted">
