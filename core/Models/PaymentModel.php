@@ -2,13 +2,10 @@
 
 use Core\Conf\Kyaaaa\DB;
 
-class DonateModel {
-    public function __construct() {
-        $this->donations = DB::query('donations');
-    }
+class PaymentModel {
 
     public function save_donation($data) {
-        $builder = $this->donations;
+        $builder = DB::query('donations');
         $builder->insert($data);
         $query = $builder->save();
         return $query;
