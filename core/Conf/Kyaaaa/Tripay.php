@@ -59,12 +59,11 @@ class Tripay {
     // $payload = json_decode($payload);
     public function request_payment($payload) {
 
-        $today = date('dmyHis');
         $apiKey       = $this->apiKey;
         $privateKey   = $this->privateKey;
         $merchantCode = $this->merchantCode;
         $phone = '0812' . rand(11111111,99999999);
-        $merchantRef  = 'INVD/'. substr($payload['name'], -3) . '/' . $today;
+        $merchantRef  = 'INV'. substr($phone, -5);
         $items = [
             [
                 'sku' => 'TF',
@@ -230,6 +229,25 @@ class Tripay {
             </script>";
             exit();
         }
+    }
+
+    public function callback() {
+        $json = file_get_contents("php://input");
+        $callbackSignature = isset($_SERVER['HTTP_X_CALLBACK_SIGNATURE']) ? $_SERVER['HTTP_X_CALLBACK_SIGNATURE'] : '';
+        $signature = hash_hmac('sha256', $json, $this->privateKey);
+        if( $callbackSignature !== $signature ) {
+            exit(json_encode([
+                'success' => false,
+                'message' => 'Invalid signature',
+            ]));
+        }
+        if ('payment_status' !== $_SERVER['HTTP_X_CALLBACK_EVENT']) {
+            exit(json_encode([
+                'success' => false,
+                'message' => 'Invalid callback event, no action was taken',
+            ]));
+        }
+        return json_decode($json);
     }
 
 }
