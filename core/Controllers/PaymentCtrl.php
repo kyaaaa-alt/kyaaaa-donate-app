@@ -18,8 +18,8 @@ class PaymentCtrl {
     }
 
     public function do_donate() {
-        header("Access-Control-Allow-Origin: *");
-        header("Access-Control-Allow-Headers: *");
+//        header("Access-Control-Allow-Origin: *");
+//        header("Access-Control-Allow-Headers: *");
         $name = $this->request->post('name');
         $email = $this->request->post('email');
         $amount = $this->request->post('amount');
@@ -80,6 +80,31 @@ class PaymentCtrl {
         $payment_code = $data['response']->data->payment_method;
         $data['icon'] = $this->tripay->icon($payment_code);
         return view('invoice/index', $data);
+    }
+
+    public function callback() {
+        $data = $this->tripay->callback();
+        $get = $this->PaymentModel->get_merchant_ref($data->merchant_ref);
+        if (empty($get)) {
+            exit(json_encode([
+                'success' => false,
+                'message' => 'merchant_ref not found',
+            ]));
+        }
+        $update = $this->PaymentModel->update_donation($data->merchant_ref ,$data->status);
+        if ($update) {
+            echo json_encode(['success' => true]);
+            if ($data->status == 'PAID') {
+                $email_body = '<html><head></head><body><h3>Halo, '.$get[0]->customer_name .'</h3><p>Terima kasih, ya untuk donasinya! Berikut detail pembayarannya: </p><table style="width:100%;border: 1px solid black;border-collapse: collapse;"> <tr> <th style="padding: 5px;text-align: left;border: 1px solid black;">Invoice link</th> <td style="padding: 5px;text-align: left;border: 1px solid black;"><a href="'.$get[0]->invoice_url .'">'.$get[0]->invoice_url .'</a></td></tr><tr> <th style="padding: 5px;text-align: left;border: 1px solid black;">Nama</th> <td style="padding: 5px;text-align: left;border: 1px solid black;">'.$get[0]->customer_name .'</td></tr><tr> <th style="padding: 5px;text-align: left;border: 1px solid black;">Metode Pembayaran</th> <td style="padding: 5px;text-align: left;border: 1px solid black;">'.$get[0]->payment_name .'</td></tr><tr> <th style="padding: 5px;text-align: left;border: 1px solid black;">Total</th> <td style="padding: 5px;text-align: left;border: 1px solid black;">'.$get[0]->amount .'</td></tr><tr> <th style="padding: 5px;text-align: left;border: 1px solid black;">Waktu Pembayaran</th> <td style="padding: 5px;text-align: left;border: 1px solid black;">'.date('d/m/Y H:i:s', $data->paid_at).'</td></tr></table><br/>Terima Kasih</body></html>';
+
+                $email = \Core\Conf\Email::start();
+                $email->setFrom('naufspace@gmail.com', 'Nauf Space');
+                $email->setTo($get[0]->customer_email, $get[0]->customer_name);
+                $email->setSubject('Pembayaran dengan '.$get[0]->payment_name.' Berhasil tanggal ' . date('d/m/Y H:i:s', $data->paid_at));
+                $email->setBody($email_body);
+                $email->send();
+            }
+        }
     }
 
 }
