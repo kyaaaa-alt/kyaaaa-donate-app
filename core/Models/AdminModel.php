@@ -34,4 +34,18 @@ class AdminModel {
         return $query;
     }
 
+    public function update_profile($data) {
+        $builder = DB::query('users');
+        $builder->update($data);
+        $query = $builder->save();
+        return $query;
+    }
+
+    public function update_settings($data) {
+        $builder = DB::query('settings');
+        $builder->update($data);
+        $query = $builder->save();
+        return $query;
+    }
+
 }
