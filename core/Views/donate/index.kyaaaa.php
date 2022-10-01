@@ -97,9 +97,8 @@
             </div>
         <?php } ?>
         </div>
-            <nav class="pagination-container">
+            <nav class="pagination-container mb-n8">
                 <button class="pagination-button" id="prev-button" title="Previous page">&lt;</button>
-                <div id="pagination-numbers"></div>
                 <button class="pagination-button" id="next-button" title="Next page">&gt;</button>
             </nav>
     </div>
