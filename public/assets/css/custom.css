@@ -658,8 +658,15 @@ h4 {
 }
 
 .alert {
-    padding: 10px;
+    padding: 8px;
     background-color: #e2777a;
+    color: #fff3cd;
+    margin: 0 auto;
+}
+
+.success {
+    padding: 8px;
+    background-color: #7eac73;
     color: #fff3cd;
     margin: 0 auto;
 }
@@ -689,6 +696,7 @@ h4 {
 
 
 .file-upload .file-upload-select {
+    font-size: 13px;
     display: block;
     color: #dbdbdb;
     cursor: pointer;
@@ -696,8 +704,8 @@ h4 {
     background: #24282e;
     overflow: hidden;
     position: relative;
-
 }
+
 .file-upload .file-upload-select .file-select-button {
     background: #181b24;
     padding: 10px;
@@ -719,6 +727,38 @@ h4 {
     display: none;
 }
 
+.file-upload2 .file-upload-select2 {
+    font-size: 13px;
+    display: block;
+    color: #dbdbdb;
+    cursor: pointer;
+    text-align: left;
+    background: #24282e;
+    overflow: hidden;
+    position: relative;
+}
+
+.file-upload2 .file-upload-select2 .file-select-button2 {
+    background: #181b24;
+    padding: 10px;
+    display: inline-block;
+}
+.file-upload2 .file-upload-select2 .file-select-name2 {
+    display: inline-block;
+    padding: 10px;
+}
+.file-upload2 .file-upload-select2:hover .file-select-button2 {
+    background: #181b24;
+    color: #ffffff;
+    transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+}
+.file-upload2 .file-upload-select2 input[type="file"] {
+    display: none;
+}
+
 .link {
     text-decoration: none;
     color: #5398ff;
@@ -727,4 +767,210 @@ h4 {
 
 .f12 {
     font-size: 12px !important;
+}
+
+
+.btn {
+    display: inline-block;
+    letter-spacing: 2px;
+    padding: 0.5rem 1rem;
+    width: 75px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 12px;
+}
+
+/* Button Outline
+----------------------------*/
+.btn-outline {
+    transition: color 0.3s;
+}
+
+.btn-outline.color {
+    margin-left: 1rem;
+    box-shadow: inset 0 0 0 2px #000;
+}
+
+/* When animating the lines simply move in a certain direction, so we need to make sure that they are hidden when outside of the button. This way we will get our realistic animating border effect. */
+.btn-outline {
+    overflow: hidden;
+    position: relative;
+}
+/* Left & Right Lines Container */
+.btn-outline .lines {
+    display: block;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 0;
+}
+/* All Lines */
+.btn-outline:before,
+.btn-outline:after,
+.btn-outline .lines:before,
+.btn-outline .lines:after{
+    background-color: #fff;
+    content: "";
+    position: absolute;
+    transition: transform 0.3s;
+}
+/* Top & Bottom Lines */
+.btn-outline:before,
+.btn-outline:after {
+    left: 0;
+    width: 100%;
+    height: 2px;
+}
+/* Top Line */
+.btn-outline:after {
+    bottom: auto;
+    top: 0;
+}
+.btn-outline.draw:after {
+    transition-delay: 0.6s;
+}
+/* Bottom Line */
+.btn-outline:before {
+    bottom: 0;
+    top: auto;
+}
+.btn-outline.draw:before {
+    transition-delay: 0.2s;
+}
+/* Left & Right Lines */
+.btn-outline .lines:before,
+.btn-outline .lines:after {
+    top: 0;
+    height: 100%;
+    width: 2px;
+}
+/* Left Line */
+.btn-outline .lines:before {
+    left: 0;
+    right: auto;
+}
+/* Right Line */
+.btn-outline .lines:after {
+    left: auto;
+    right: 0;
+}
+.btn-outline.draw .lines:after {
+    transition-delay: 0.4s;
+}
+/***************
+ * Hover State *
+ ***************/
+/* Text */
+.btn-outline:hover {
+    color: #000;
+}
+/* Top */
+.btn-outline:hover:after {
+    transform: translateX(100%);
+}
+.btn-outline.draw:hover:after {
+    transition-delay: 0s;
+}
+/* Bottom */
+.btn-outline:hover:before {
+    transform: translateX(-100%);
+}
+.btn-outline.draw:hover:before {
+    transform: translateX(-100%);
+    transition-delay: 0.4s;
+}
+/* Left */
+.btn-outline:hover .lines:before {
+    transform: translateY(-100%);
+}
+.btn-outline.center:hover .lines:before {
+    transform: translateY(100%);
+}
+.btn-outline.draw:hover .lines:before {
+    transform: translateY(-100%);
+    transition-delay: 0.6s;
+}
+/* Right */
+.btn-outline:hover .lines:after {
+    transform: translateY(100%);
+}
+.btn-outline.center:hover .lines:after {
+    transform: translateY(-100%);
+}
+.btn-outline.draw:hover .lines:after {
+    transform: translateY(100%);
+    transition-delay: 0.2s;
+}
+
+/* Button Swipe
+----------------------------*/
+.btn-swipe {
+    position: relative;
+    background-color: #000;
+    z-index: 0;
+    overflow: hidden;
+    transition: color 0.3s cubic-bezier(0, .25, .5, 1);
+}
+
+.btn-swipe.no-bg {
+    background: none;
+    box-shadow: inset 0 0 0 2px #fff;
+}
+
+.btn-swipe:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    transform: translateX(-115%);
+    transition: all 0.3s cubic-bezier(0, .25, .5, 1);
+    background-color: #fff;
+}
+
+.btn-swipe.angle::before {
+    transform: skewX(-35deg) translateX(-115%);
+}
+
+.btn-swipe:hover::before,
+.btn-swipe:active::before {
+    transform: translateX(0) scaleX(1.35);
+}
+
+.btn-swipe.angle:hover::before,
+.btn-swipe.angle:active::before {
+    transform: skewX(-15deg) translateX(0) scaleX(1.35);
+}
+
+.btn-swipe:hover,
+.btn-swipe:active {
+    color: #000;
+}
+
+/* Button Simple
+----------------------------*/
+.btn-simple {
+    position: relative;
+    background-color: none;
+    box-shadow: inset 0 0 0 2px #fff;
+    z-index: 0;
+    overflow: hidden;
+    transition: all 0.25s ease-out;
+}
+
+.btn-simple:hover,
+.btn-simple:focus {
+    box-shadow: inset 0 0 0 2px rgba(255,255,255,0.5);
+    color: rgba(255,255,255,0.5);
+    transform: translateY(2px);
+}
+
+.btn-simple:focus {
+    color: rgba(255,255,255,1);
 }
