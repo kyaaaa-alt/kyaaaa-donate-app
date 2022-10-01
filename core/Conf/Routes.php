@@ -21,6 +21,10 @@ class Routes {
         $router->get('/dashboard/settings', [\Core\Controllers\AdminCtrl::class,'settings'])
             ->middleware('\Core\Filter\Auth#admin');
 
+        $router->post('/update_profile', [\Core\Controllers\AdminCtrl::class,'update_profile'])
+            ->middleware('\Core\Filter\Auth#admin')
+            ->middleware('\Core\Filter\CSRF#update');
+
 
         $router->run();
     }
