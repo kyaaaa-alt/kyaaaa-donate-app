@@ -508,3 +508,58 @@ ml-2
 .logo {
     margin-right:33px;
 }
+
+/*ul.pagination {*/
+/*    display: inline-block;*/
+/*    padding: 0;*/
+/*    margin: 0;*/
+/*}*/
+
+/*ul.pagination li {display: inline;}*/
+
+/*ul.pagination li a {*/
+/*    color: #fff;*/
+/*    float: left;*/
+/*    padding: 8px 16px;*/
+/*    text-decoration: none;*/
+/*    transition: background-color .3s;*/
+/*    border: 1px solid #ddd;*/
+/*}*/
+
+/*ul.pagination li a.active {*/
+/*    background-color: #4CAF50;*/
+/*    color: white;*/
+/*    border: 1px solid #4CAF50;*/
+/*}*/
+
+.pagination-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    bottom: 0;
+    padding: 1rem 0;
+    justify-content: center;
+}
+
+.pagination-number,
+.pagination-button {
+    font-size: 0.8rem;
+    background-color: transparent;
+    border: none;
+    margin: 0.25rem 0.25rem;
+    cursor: pointer;
+    height: 2.5rem;
+    width: 2.5rem;
+    border-radius: .2rem;
+    color: #fff;
+}
+
+.pagination-number:hover,
+.pagination-button:not(.disabled):hover {
+    background: #4149bc;
+}
+
+.pagination-number.active {
+    color: #fff;
+    background: #3650c0;
+}
