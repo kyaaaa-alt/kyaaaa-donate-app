@@ -16,9 +16,18 @@ function makePayment(url, privacy = false) {
         method: 'POST',
         body: data
     }).then((response) => response.json())
-        .then((data) =>
-            location.href = data.invoice
-        );
+        .then((data) => {
+            if (data.success != true) {
+                Swal.fire({
+                    icon: 'warning',
+                    text: data.msg,
+                    showConfirmButton: false,
+                    timer: 5000
+                })
+            } else {
+                location.href = data.invoice
+            }
+        });
 }
 
 function doDonate(url) {
@@ -26,20 +35,19 @@ function doDonate(url) {
     const email = document.getElementById('email').value
     const msgs = document.getElementById('msgs').value
     const donate_amount = document.getElementById('amount').value
-    console.log(validateEmail(email), email)
     if (name == '' || email == '' || msgs == '' || donate_amount == '') {
         Swal.fire({
             icon: 'warning',
-            title: 'harap isi nama, email dan pesan!',
+            text: 'harap isi nama, email, pesan, dan jumlah dukungan!',
             showConfirmButton: false,
-            timer: 3500
+            timer: 2500
         })
     } else if (!validateEmail(email)) {
         Swal.fire({
             icon: 'warning',
-            title: 'format email salah!',
+            text: 'format email salah!',
             showConfirmButton: false,
-            timer: 3500
+            timer: 2500
         })
     } else {
         Swal.fire({
