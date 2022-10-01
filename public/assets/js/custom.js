@@ -10,8 +10,8 @@ for (var i = 0; i < amountBtn.length; i++) {
         this.setAttribute('checked', '');
         document.querySelector("button").innerHTML = 'Donate Rp ' + document.querySelector('.selected input').value
         const amount = document.querySelector('.selected input').value.replace(/[^0-9]/g, '');
-        document.querySelector("#amount").value = amount;
-        document.querySelector("#custom_amount").value = document.querySelector('.selected input').value;
+        // document.querySelector("#amount").value = amount;
+        // document.querySelector("#custom_amount").value = document.querySelector('.selected input').value;
     });
 }
 
@@ -29,32 +29,4 @@ amount.addEventListener('keyup', function (event) {
     document.querySelector("button").innerHTML = 'Donate Rp ' + r;
     var newvalue = r.replace(/[^0-9]/g, '');
     document.querySelector("#amount").value = newvalue;
-});
-
-const donateBtn = document.getElementById('donateBtn')
-.addEventListener('click', function (event) {
-    Swal.fire({
-        icon:'question',
-        title: 'Dukung sebagai anonim?',
-        text: 'Nominal dukungan dan pesan akan disembunyikan.',
-        showCancelButton: true,
-        confirmButtonText: 'Tidak',
-        cancelButtonText: 'Ya',
-        confirmButtonColor: '#3650c0',
-        cancelButtonColor: '#3650c0',
-        reverseButtons: true,
-        allowOutsideClick:false,
-        customClass: {
-            actions: 'my-actions',
-            cancelButton: 'order-1 right-gap',
-            confirmButton: 'order-2',
-            denyButton: 'order-3',
-        }
-    }).then((result) => {
-        if (result.isConfirmed) {
-            Swal.fire('Saved!', '', 'success')
-        } else if (result.isDismissed) {
-            Swal.fire('Changes are not saved', '', 'info')
-        }
-    })
 });
