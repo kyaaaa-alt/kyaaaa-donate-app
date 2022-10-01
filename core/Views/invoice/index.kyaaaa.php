@@ -8,14 +8,18 @@
         </div>
     </div>
     <div class="donate-blue">
-        <div class="donate-amount-box text-center">
+        <div class="donate-amount-box text-center" id="box">
+            <?php if ($response->data->status != 'PAID') { ?>
             <img class="qr" id="qr" src="<?= $response->data->qr_url ?>">
             <div class="donatur">
                 <h3>Rp <?= number_format($response->data->amount,0,',','.') ?> from <?= $response->data->customer_name ?></h3>
             </div>
 
             <h5 class="mt-n3">Batas Pembayaran</h5>
-            <span class="expdate mt-n8"><?= date("d/m/y H:i",$response->data->expired_time) ?></span>
+            <span class="expdate mt-n8"><?= date("d/m/y H:i:s",$response->data->expired_time) ?></span>
+            <?php } else { ?>
+            <h3>Thank You</h3>
+            <?php } ?>
         </div>
     </div>
     <div class="donate-black">
