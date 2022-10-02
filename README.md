@@ -1,4 +1,4 @@
-### Kyaaaa-Donate-APP
+## Kyaaaa-Donate-APP
 #### Personal donation system with Stream Overlay
 
 ![mimum_requirements_php](https://img.shields.io/badge/PHP-^7.3|^8.0-green?style=flat-square&logo=PHP)
@@ -6,7 +6,7 @@
 
 Kyaaaa-Donate-APP adalah sistem donasi pribadi dengan dukungan stream overlay dan dibuat menggunakan framework php buatan sendiri ([Kyaaaa-PHP Framework](https://github.com/naufkia/kyaaaa-php))
 
-#### What inside?
+### What inside?
 
 * [Kyaaaa-PHP Framework](https://github.com/naufkia/kyaaaa-php) - Lightweight PHP Framework
 * [Sweetalert2](https://sweetalert2.github.io/) - Replacement for javascript popup boxes
@@ -15,7 +15,7 @@ Kyaaaa-Donate-APP adalah sistem donasi pribadi dengan dukungan stream overlay da
 * [Payment Gateway](https://tripay.co.id) - Payment Gateway
 * Pure css & vanilla js
 
-#### Fitur
+### Fitur
 
 * QRIS Payment (hanya mendukung qris payment)
 * Stream Overlay :
@@ -24,7 +24,7 @@ Kyaaaa-Donate-APP adalah sistem donasi pribadi dengan dukungan stream overlay da
 * Social Media links
 * Contributors History
 
-#### Installation
+### Installation
 Berhubung ([Kyaaaa-PHP](https://github.com/naufkia/kyaaaa-php)) framework belum support database migration, jadi harus import database secara manual.
 
 1. `composer create-project naufkia/kyaaaa-donate-app:dev-main`
@@ -33,10 +33,10 @@ Berhubung ([Kyaaaa-PHP](https://github.com/naufkia/kyaaaa-php)) framework belum 
 4. run this php cli (commandline): `php kyaaaa`
 5. Open `http://localhost:5555` on your browser.
 
-#### Default Credential
+### Default Credential
 * Login link `http://localhost:5555/login`
 * Email : `demo@demo.com`
 * Password : `demo`
 
-#### Buy me a coffe
+### Buy me a coffe
 [!["Buy Me A Coffee"](https://nauf.space/orange_img.webp)](https://nauf.space/donate)
