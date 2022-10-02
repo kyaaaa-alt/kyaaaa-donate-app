@@ -34,7 +34,6 @@ class PaymentCtrl {
         ];
 
         $order = $this->tripay->request_payment($payload);
-
         if ($order->success == true) {
             $data = [
                 'reference' => $order->data->reference,
@@ -79,6 +78,7 @@ class PaymentCtrl {
         $data['response'] = $this->tripay->invoice($id);
         $payment_code = $data['response']->data->payment_method;
         $data['icon'] = $this->tripay->icon($payment_code);
+        $data['settings'] = $this->PaymentModel->get_settings();
         return view('invoice/index', $data);
     }
 
@@ -95,6 +95,14 @@ class PaymentCtrl {
         if ($update) {
             echo json_encode(['success' => true]);
             if ($data->status == 'PAID') {
+                $pusher = $this->tripay->pusher();
+                $push['name'] = $get[0]->customer_name;
+                $push['amount'] = 'Rp ' . number_format($get[0]->amount,0,',','.');
+                $push['jumlah'] = $get[0]->amount;
+                $push['msgs'] = $get[0]->msgs;
+                $push['merchant_ref'] = $get[0]->merchant_ref;
+                $pusher->trigger('my_stream', 'donate_event', $push);
+
                 $email_body = '<html><head></head><body><h3>Halo, '.$get[0]->customer_name .'</h3><p>Terima kasih, ya untuk donasinya! Berikut detail pembayarannya: </p><table style="width:100%;border: 1px solid black;border-collapse: collapse;"> <tr> <th style="padding: 5px;text-align: left;border: 1px solid black;">Invoice link</th> <td style="padding: 5px;text-align: left;border: 1px solid black;"><a href="'.$get[0]->invoice_url .'">'.$get[0]->invoice_url .'</a></td></tr><tr> <th style="padding: 5px;text-align: left;border: 1px solid black;">Nama</th> <td style="padding: 5px;text-align: left;border: 1px solid black;">'.$get[0]->customer_name .'</td></tr><tr> <th style="padding: 5px;text-align: left;border: 1px solid black;">Metode Pembayaran</th> <td style="padding: 5px;text-align: left;border: 1px solid black;">'.$get[0]->payment_name .'</td></tr><tr> <th style="padding: 5px;text-align: left;border: 1px solid black;">Total</th> <td style="padding: 5px;text-align: left;border: 1px solid black;">'.$get[0]->amount .'</td></tr><tr> <th style="padding: 5px;text-align: left;border: 1px solid black;">Waktu Pembayaran</th> <td style="padding: 5px;text-align: left;border: 1px solid black;">'.date('d/m/Y H:i:s', $data->paid_at).'</td></tr></table><br/>Terima Kasih</body></html>';
 
                 $email = \Core\Conf\Email::start();
