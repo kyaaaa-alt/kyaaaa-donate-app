@@ -25,12 +25,12 @@ Kyaaaa-Donate-APP adalah sistem donasi pribadi dengan dukungan stream overlay da
 * Contributors History
 
 #### Installation
-1. `composer create-project naufkia/kyaaaa-php:dev-main`
-2. `php kyaaaa`
-3. Open `http://localhost:5555` on your browser.
-
-#### Documentation
-Docs : [https://kyaaaadocs.nauf.space/](https://kyaaaadocs.nauf.space/)
+1. `composer create-project naufkia/kyaaaa-donate-app:dev-main`
+* Berhubung ([Kyaaaa-PHP](https://github.com/naufkia/kyaaaa-php)) framework belum support database migration, jadi harus import database secara manual.
+2. create `donateapp_db` database
+3. import `donateapp_db.sql`
+4. `php kyaaaa`
+5. Open `http://localhost:5555` on your browser.
 
 #### Buy me a coffe
 [!["Buy Me A Coffee"](https://nauf.space/orange_img.webp)](https://nauf.space/donate)
