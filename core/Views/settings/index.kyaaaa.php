@@ -93,8 +93,11 @@
                 <form id="stream" style="display: none;" action="<?= url('update_stream') ?>" method="post" enctype="multipart/form-data">
                     <?php csrf()->tokenField(); ?>
                     <p class="">Stream Overlay</p>
-                    <p class="f12 mt-n10">Notification : <a href="" class="link"><?= url('notification') ?></a></p>
-                    <p class="f12 mt-n15">Running Text : <a href="" class="link" ><?= url('running_text') ?></a></p>
+                    <p class="f12 mt-n10">Notification : <a href="<?= url('donate_notification') ?>" target="_blank" class="link"><?= url('donate_notification') ?></a></p>
+                    <p class="f12 mt-n15">Running Text : <a href="<?= url('running_text') ?>" target="_blank" class="link" ><?= url('running_text') ?></a></p>
+                    <a class="testbtn mb-10" href="<?= url('test_notification') ?>" onclick="showPusher()">
+                        Test Send Donate Overlay
+                    </a>
                     <div class="file-upload mb-5 mr-15">
                         <div class="file-upload-select">
                             <div class="file-select-button" >Notification</div>
