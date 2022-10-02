@@ -1,19 +1,15 @@
 ### Kyaaaa-Donate-APP
 #### Personal donation system with Stream Overlay
 
-![mimum_requirements_php](https://img.shields.io/badge/Minimum%20PHP-^7.3|^8.0-green?style=flat-square&logo=PHP)
+![mimum_requirements_php](https://img.shields.io/badge/PHP-^7.3|^8.0-green?style=flat-square&logo=PHP)
 ![last_commit](https://img.shields.io/github/last-commit/naufkia/kyaaaa-php?style=flat-square)
 
-#### Directory Structure :
+Kyaaaa-Donate-APP adalah sistem donasi pribadi dengan dukungan stream overlay dan dibuat menggunakan framework php buatan sendiri ([https://github.com/naufkia/kyaaaa-php](https://github.com/naufkia/kyaaaa-php))
 
-| Directory          | Description             |
-|--------------------|-------------------------|
-| `core`             | App Directory           |
-| `core/Conf`        | Configuration Directory |
-| `core/Controllers` | Controllers Directory   |
-| `core/Models`      | Models Directory        |
-| `core/Views`       | Views Directory         |
-| `public`           | Public Directory        |
+#### What inside?
+
+* [Kyaaaa-PHP Framework](https://www.codeigniter.com/) - The small framework with powerful features
+* [evilfreelancer/routeros-api-php](https://github.com/EvilFreelancer/routeros-api-php) - RouterOS API Client.
 
 #### Installation
 1. `composer create-project naufkia/kyaaaa-php:dev-main`
