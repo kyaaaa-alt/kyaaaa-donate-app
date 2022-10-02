@@ -769,6 +769,22 @@ h4 {
     font-size: 12px !important;
 }
 
+.testbtn {
+    display: inline-block;
+    letter-spacing: 2px;
+    padding: 0.5rem 1rem;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 12px;
+    border: 1px solid #d0b68f;
+}
+
+.testbtn:hover {
+    background-color: #fff;
+    color: #000;
+}
 
 .btn {
     display: inline-block;
