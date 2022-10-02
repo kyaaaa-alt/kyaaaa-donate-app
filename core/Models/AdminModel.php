@@ -48,4 +48,19 @@ class AdminModel {
         return $query;
     }
 
+    public function count_paid() {
+        $builder = DB::query('donations');
+        $builder->select('COUNT(id) as total');
+        $builder->where('status', 'PAID');
+        $query = $builder->get()[0]->total;
+        return $query;
+    }
+
+    public function count_all() {
+        $builder = DB::query('donations');
+        $builder->select('COUNT(id) as total');
+        $query = $builder->get()[0]->total;
+        return $query;
+    }
+
 }
