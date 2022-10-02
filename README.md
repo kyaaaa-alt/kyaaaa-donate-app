@@ -29,7 +29,7 @@ Kyaaaa-Donate-APP adalah sistem donasi pribadi dengan dukungan stream overlay da
    1) Berhubung ([Kyaaaa-PHP](https://github.com/naufkia/kyaaaa-php)) framework belum support database migration, jadi harus import database secara manual.
 2. create `donateapp_db` database
 3. import `donateapp_db.sql`
-4. `php kyaaaa`
+4. run this php cli (commandline): `php kyaaaa`
 5. Open `http://localhost:5555` on your browser.
 
 #### Buy me a coffe
