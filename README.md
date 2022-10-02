@@ -4,7 +4,7 @@
 ![mimum_requirements_php](https://img.shields.io/badge/PHP-^7.3|^8.0-green?style=flat-square&logo=PHP)
 ![last_commit](https://img.shields.io/github/last-commit/naufkia/kyaaaa-php?style=flat-square)
 
-Kyaaaa-Donate-APP adalah sistem donasi pribadi dengan dukungan stream overlay.
+Kyaaaa-Donate-APP adalah sistem donasi pribadi dengan dukungan stream overlay.\
 Project ini dibuat menggunakan framework php buatan sendiri ([Kyaaaa-PHP Framework](https://github.com/naufkia/kyaaaa-php))
 
 ### What inside?
