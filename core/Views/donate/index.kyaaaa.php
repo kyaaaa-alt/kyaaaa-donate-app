@@ -1,19 +1,40 @@
 <div class="donate">
     <div class="donate-black">
-        <div class="text-center">
+        <div class="text-center mb-n8">
             <a href="<?= url() ?>" class="circle">
-                <img height="50" width="50" src="http://www.gravatar.com/avatar/9017a5f22556ae0eb7fb0710711ec125?s=128">
+                <img height="50" width="50" src="<?= url('assets/img') ?>/avatar.png?nocache=<?php echo date('is'); ?>" />
             </a>
         </div>
         <h3>@<?= $username ?></h3>
-        <div class="text-center">
-            <img width="25" height="25" src="<?= url('assets/img') ?>/instagram.svg" />
-            <img width="25" height="25" src="<?= url('assets/img') ?>/youtube.svg" />
-            <img width="25" height="25" src="<?= url('assets/img') ?>/facebook.svg" />
-            <img width="25" height="25" src="<?= url('assets/img') ?>/in.svg" />
-            <img width="25" height="25" src="<?= url('assets/img') ?>/twitch.svg" />
-            <img width="25" height="25" src="<?= url('assets/img') ?>/twitter.svg" />
-            <img width="25" height="25" src="<?= url('assets/img') ?>/github.svg" />
+        <div class="text-center mb-n3">
+            <?php if (!empty($users->ig)) { ?>
+                <a target="_blank" href="<?= $users->ig ?>"><img width="25" height="25" src="<?= url('assets/img') ?>/instagram.svg" /></a>
+            <?php } ?>
+
+            <?php if (!empty($users->yt)) { ?>
+                <a target="_blank" href="<?= $users->yt ?>"><img width="25" height="25" src="<?= url('assets/img') ?>/youtube.svg" /></a>
+            <?php } ?>
+
+            <?php if (!empty($users->fb)) { ?>
+                <a target="_blank" href="<?= $users->fb ?>"><img width="25" height="25" src="<?= url('assets/img') ?>/facebook.svg" /></a>
+            <?php } ?>
+
+            <?php if (!empty($users->linkedin)) { ?>
+                <a target="_blank" href="<?= $users->linkedin ?>"><img width="25" height="25" src="<?= url('assets/img') ?>/in.svg" /></a>
+            <?php } ?>
+
+            <?php if (!empty($users->twitch)) { ?>
+                <a target="_blank" href="<?= $users->twitch ?>"><img width="25" height="25" src="<?= url('assets/img') ?>/twitch.svg" /></a>
+            <?php } ?>
+
+            <?php if (!empty($users->twitter)) { ?>
+                <a target="_blank" href="<?= $users->twitter ?>"><img width="25" height="25" src="<?= url('assets/img') ?>/twitter.svg" /></a>
+            <?php } ?>
+
+            <?php if (!empty($users->github)) { ?>
+                <a target="_blank" href="<?= $users->github ?>"><img width="25" height="25" src="<?= url('assets/img') ?>/github.svg" /></a>
+            <?php } ?>
+
         </div>
     </div>
     <div class="donate-blue">
@@ -39,7 +60,7 @@
                         <label for="amount10">25K</label>
                     </div>
                     <div class="denomination">
-                        <input autocomplete="off" type="radio"value="50.000">
+                        <input autocomplete="off" type="radio" value="50.000">
                         <label for="amount15">50K</label>
                     </div>
                     <div class="denomination">
