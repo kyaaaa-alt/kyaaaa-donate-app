@@ -17,7 +17,7 @@ Kyaaaa-Donate-APP adalah sistem donasi pribadi dengan dukungan stream overlay da
 
 #### Fitur
 
-* QRIS Payment (hanya mendukung qris payment) bisa menambah metode bayar yang lain juga silahkan dikembangkan :D
+* QRIS Payment (hanya mendukung qris payment)
 * Stream Overlay :
   1) Donate Notification : with Text-to-Speech, gif, and custom notification sound.
   2) Running Text Contributors
