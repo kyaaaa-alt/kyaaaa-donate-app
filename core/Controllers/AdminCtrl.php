@@ -68,6 +68,14 @@ class AdminCtrl {
     public function update_profile() {
         $file = $this->request->file('avatar');
         if ($this->request->getFileSize($file) != 0) {
+            $allowedTypes = [
+                'image/png' => 'png',
+                'image/jpeg' => 'jpg'
+            ];
+            if (!$this->request->validate($file, $allowedTypes)) {
+                $this->session->flash('error', 'File not allowed!');
+                redirectTo(url('dashboard/settings'));
+            }
             if ($this->request->getFileSize($file) >= 5) {
                 $this->session->flash('error', 'Avatar Max Size 5MB');
                 redirectTo(url('dashboard/settings'));
@@ -117,13 +125,95 @@ class AdminCtrl {
     public function update_stream() {
         $file = $this->request->file('notif');
         if ($this->request->getFileSize($file) != 0) {
+            $allowedTypes = [
+                'audio/mpeg' => 'mp3'
+            ];
+            if (!$this->request->validate($file, $allowedTypes)) {
+                $this->session->flash('error', 'File not allowed!');
+                redirectTo(url('dashboard/settings'));
+            }
             if ($this->request->getFileSize($file) >= 5) {
                 $this->session->flash('error', 'Max Size 5MB');
                 redirectTo(url('dashboard/settings'));
             }
-            $path = 'assets/img';
-            $newfilename = 'avatar.png';
+            $path = 'assets/notif';
+            $newfilename = 'notif.mp3';
             $moveFile = $this->request->move($file, $path, $newfilename, true);
+            $this->session->flash('success', 'Saved!');
+            redirectTo(url('dashboard/settings'));
+        } else {
+            $this->session->flash('error', 'No File');
+            redirectTo(url('dashboard/settings'));
+        }
+    }
+
+    public function update_tripay() {
+        if (!empty($this->request->post('merchant_code'))) {
+            $data['merchant_code'] = $this->request->post('merchant_code');
+        } else {
+            $this->session->flash('error', 'Fill the required fields');
+            redirectTo(url('dashboard/settings'));
+        }
+        if (!empty($this->request->post('merchant_api_key'))) {
+            $data['merchant_api_key'] = $this->request->post('merchant_api_key');
+        } else {
+            $this->session->flash('error', 'Fill the required fields');
+            redirectTo(url('dashboard/settings'));
+        }
+        if (!empty($this->request->post('merchant_private_key'))) {
+            $data['merchant_private_key'] = $this->request->post('merchant_private_key');
+        } else {
+            $this->session->flash('error', 'Fill the required fields');
+            redirectTo(url('dashboard/settings'));
+        }
+        if (!empty($this->request->post('endpoint'))) {
+            $data['endpoint'] = $this->request->post('endpoint');
+        } else {
+            $this->session->flash('error', 'Fill the required fields');
+            redirectTo(url('dashboard/settings'));
+        }
+        $update = $this->AdminModel->update_settings($data);
+        if ($update) {
+            $this->session->flash('success', 'Saved!');
+            redirectTo(url('dashboard/settings'));
+        } else {
+            $this->session->flash('error', 'Failed!');
+            redirectTo(url('dashboard/settings'));
+        }
+    }
+
+    public function update_pusher() {
+        if (!empty($this->request->post('pusher_app_id'))) {
+            $data['pusher_app_id'] = $this->request->post('pusher_app_id');
+        } else {
+            $this->session->flash('error', 'Fill the required fields');
+            redirectTo(url('dashboard/settings'));
+        }
+        if (!empty($this->request->post('pusher_key'))) {
+            $data['pusher_key'] = $this->request->post('pusher_key');
+        } else {
+            $this->session->flash('error', 'Fill the required fields');
+            redirectTo(url('dashboard/settings'));
+        }
+        if (!empty($this->request->post('pusher_secret'))) {
+            $data['pusher_secret'] = $this->request->post('pusher_secret');
+        } else {
+            $this->session->flash('error', 'Fill the required fields');
+            redirectTo(url('dashboard/settings'));
+        }
+        if (!empty($this->request->post('pusher_cluster'))) {
+            $data['pusher_cluster'] = $this->request->post('pusher_cluster');
+        } else {
+            $this->session->flash('error', 'Fill the required fields');
+            redirectTo(url('dashboard/settings'));
+        }
+        $update = $this->AdminModel->update_settings($data);
+        if ($update) {
+            $this->session->flash('success', 'Saved!');
+            redirectTo(url('dashboard/settings'));
+        } else {
+            $this->session->flash('error', 'Failed!');
+            redirectTo(url('dashboard/settings'));
         }
     }
 
