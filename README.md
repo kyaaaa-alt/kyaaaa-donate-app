@@ -11,7 +11,7 @@ Kyaaaa-Donate-APP adalah sistem donasi pribadi dengan dukungan stream overlay da
 * [Kyaaaa-PHP Framework](https://github.com/naufkia/kyaaaa-php) - Lightweight PHP Framework
 * [Sweetalert2](https://sweetalert2.github.io/) - Replacement for javascript popup boxes
 * [Pusher WebSocket](https://pusher.com/channels) - Realtime features to your apps.
-  &nbsp; Pusher WebSocket digunakan untuk menerima data realtime donasi & pembayaran (invoice)
+  1) Pusher WebSocket digunakan untuk menerima data realtime donasi & pembayaran (invoice)
 * [Payment Gateway](https://tripay.co.id) - Payment Gateway
 * Pure css & vanilla js
 
