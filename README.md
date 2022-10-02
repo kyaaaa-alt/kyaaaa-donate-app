@@ -38,7 +38,7 @@ Berhubung ([Kyaaaa-PHP](https://github.com/naufkia/kyaaaa-php)) framework belum 
 * [https://sawer.nauf.space/](https://sawer.nauf.space/)
 
 ### Default Credential
-* Login link `http://localhost:5555/login`
+* Login link local `http://localhost:5555/login` or [https://sawer.nauf.space/login](https://sawer.nauf.space/login)
 * Email : `demo@demo.com`
 * Password : `demo`
 
