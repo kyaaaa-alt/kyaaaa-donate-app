@@ -13,6 +13,7 @@ class Routes {
 
         $router->get('/running_text', [\Core\Controllers\DonateCtrl::class,'running_text']);
 
+        $router->get('/callback', [\Core\Controllers\PaymentCtrl::class,'callback']);
 
         $router->post('/do_donate', [\Core\Controllers\PaymentCtrl::class,'do_donate'])
             ->middleware('\Core\Filter\CSRF#donate');
