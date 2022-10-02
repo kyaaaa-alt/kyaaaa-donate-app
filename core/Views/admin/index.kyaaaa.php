@@ -14,7 +14,7 @@
         <div class="card mt-n15">
             <div class="header mb-8">Profit</div>
             <span class="profit mt-25 mb-10">Rp 500.000</span>
-            <div class="footer mt-10">5/2 Donation</div>
+            <div class="footer mt-10"><?= $paid ?>/<?= $total ?> Donation</div>
         </div>
 
     </div>
