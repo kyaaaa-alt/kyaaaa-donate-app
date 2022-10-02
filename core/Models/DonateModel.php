@@ -4,10 +4,10 @@ use Core\Conf\Kyaaaa\DB;
 
 class DonateModel {
 
-    public function get_username() {
+    public function get_users() {
         $builder = DB::query('users');
-        $builder->select('username');
-        $query = $builder->get()[0]->username;
+        $builder->select('*');
+        $query = $builder->get()[0];
         return $query;
     }
 
@@ -17,6 +17,13 @@ class DonateModel {
         $builder->where('status', 'PAID');
         $builder->orderBy('id', 'DESC');
         $query = $builder->get();
+        return $query;
+    }
+
+    public function get_settings() {
+        $builder = DB::query('settings');
+        $builder->select('*');
+        $query = $builder->get()[0];
         return $query;
     }
 
