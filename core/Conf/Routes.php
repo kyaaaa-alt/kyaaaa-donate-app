@@ -8,6 +8,12 @@ class Routes {
 
         $router->get('/', [\Core\Controllers\DonateCtrl::class,'index']);
 
+        $router->get('/donate_notification', [\Core\Controllers\DonateCtrl::class,'donate_notification']);
+        $router->get('/test_notification', [\Core\Controllers\DonateCtrl::class,'test_notification']);
+
+        $router->get('/running_text', [\Core\Controllers\DonateCtrl::class,'running_text']);
+
+
         $router->post('/do_donate', [\Core\Controllers\PaymentCtrl::class,'do_donate'])
             ->middleware('\Core\Filter\CSRF#donate');
 
