@@ -9,6 +9,10 @@ class Tripay {
         $this->apiKey = $tripay_api_key[0]->merchant_api_key;
         $this->privateKey = $tripay_api_key[0]->merchant_private_key;
         $this->endpoint = $tripay_api_key[0]->endpoint;
+        $this->pusher_app_id = $tripay_api_key[0]->pusher_app_id;
+        $this->pusher_key = $tripay_api_key[0]->pusher_key;
+        $this->pusher_secret = $tripay_api_key[0]->pusher_secret;
+        $this->pusher_cluster = $tripay_api_key[0]->pusher_cluster;
     }
 
     public function payment_channel() {
@@ -248,6 +252,12 @@ class Tripay {
             ]));
         }
         return json_decode($json);
+    }
+
+    public function pusher() {
+        $options = ['cluster' => $this->pusher_cluster, 'useTLS' => true];
+        return new \Pusher\Pusher($this->pusher_key, $this->pusher_secret, $this->pusher_app_id,$options);
+
     }
 
 }
