@@ -27,4 +27,11 @@ class PaymentModel {
         return $query;
     }
 
+    public function get_settings() {
+        $builder = DB::query('settings');
+        $builder->select('*');
+        $query = $builder->get()[0];
+        return $query;
+    }
+
 }
