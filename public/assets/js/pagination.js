@@ -24,7 +24,7 @@ function createNumberBtn() {
         const btn = document.createElement("button");
         btn.innerHTML = i;
         btn.classList.add("pagination-number");
-        paginationNumbers.append(btn);
+        // paginationNumbers.append(btn);
         btnArray.push(btn);
         btnArray[0].classList.add("active");
         btn.addEventListener("click", () => {
