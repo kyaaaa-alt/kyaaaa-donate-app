@@ -109,18 +109,19 @@
 
                 <form id="tripay" style="display: none;" action="<?= url('update_tripay') ?>" method="post">
                     <?php csrf()->tokenField(); ?>
-                    <div class="input-group mt-20">
-                        <input autocomplete="off" type="text"  name="merchantcode" placeholder="Tripay Merchant Code" required>
+                    <p class="f12 mt-20">Get your key here : <a href="https://tripay.co.id" class="link">https://tripay.co.id</a></p>
+                    <div class="input-group">
+                        <input autocomplete="off" type="text"  name="merchant_code" placeholder="Tripay Merchant Code" value="<?= esc($settings->merchant_code) ?>" required>
                     </div>
                     <div class="input-group">
-                        <input autocomplete="off" type="text"  name="apikey" placeholder="Tripay API Key" required>
+                        <input autocomplete="off" type="text"  name="merchant_api_key" placeholder="Tripay API Key" value="<?= esc($settings->merchant_api_key) ?>" required>
                     </div>
                     <div class="input-group">
-                        <input autocomplete="off" type="text"  name="privatekey" placeholder="Tripay Private Key" required>
+                        <input autocomplete="off" type="text"  name="merchant_private_key" placeholder="Tripay Private Key" value="<?= esc($settings->merchant_private_key) ?>" required>
                     </div>
                     <div class="input-group">
                         <select name="endpoint" id="endpoint" required>
-                            <option disabled selected>Mode</option>
+                            <option disabled selected><?php if ($settings->endpoint == 'api') { echo 'Production'; } else {echo 'Development';} ?></option>
                             <option value="api">Development</option>
                             <option value="api-sandbox">Production</option>
                         </select>
@@ -132,17 +133,18 @@
 
                 <form id="pusher" style="display: none;" action="<?= url('update_pusher') ?>" method="post" enctype="multipart/form-data">
                     <?php csrf()->tokenField(); ?>
-                    <div class="input-group mt-20">
-                        <input autocomplete="off" type="text"  name="pusher_app_id" placeholder="pusher app id" required>
+                    <p class="f12 mt-20">Get your key here : <a href="https://pusher.com/channels" class="link">https://pusher.com/channels</a></p>
+                    <div class="input-group">
+                        <input autocomplete="off" type="text"  name="pusher_app_id" placeholder="pusher app id" value="<?= esc($settings->pusher_app_id) ?>" required>
                     </div>
                     <div class="input-group">
-                        <input autocomplete="off" type="text"  name="pusher_key" placeholder="pusher key" required>
+                        <input autocomplete="off" type="text"  name="pusher_key" placeholder="pusher key" value="<?= esc($settings->pusher_key) ?>" required>
                     </div>
                     <div class="input-group">
-                        <input autocomplete="off" type="text"  name="pusher_secret" placeholder="pusher secret" required>
+                        <input autocomplete="off" type="text"  name="pusher_secret" placeholder="pusher secret" value="<?= esc($settings->pusher_secret) ?>" required>
                     </div>
                     <div class="input-group">
-                        <input autocomplete="off" type="text"  name="pusher_cluster" placeholder="pusher cluster" required>
+                        <input autocomplete="off" type="text"  name="pusher_cluster" placeholder="pusher cluster" value="<?= esc($settings->pusher_cluster) ?>" required>
                     </div>
                     <div class="donate-submit">
                         <button type="submit" autocomplete="off">UPDATE</button>
