@@ -4,7 +4,8 @@
 ![mimum_requirements_php](https://img.shields.io/badge/PHP-^7.3|^8.0-green?style=flat-square&logo=PHP)
 ![last_commit](https://img.shields.io/github/last-commit/naufkia/kyaaaa-php?style=flat-square)
 
-Kyaaaa-Donate-APP adalah sistem donasi pribadi dengan dukungan stream overlay dan dibuat menggunakan framework php buatan sendiri ([Kyaaaa-PHP Framework](https://github.com/naufkia/kyaaaa-php))
+Kyaaaa-Donate-APP adalah sistem donasi pribadi dengan dukungan stream overlay.
+Project ini dibuat menggunakan framework php buatan sendiri ([Kyaaaa-PHP Framework](https://github.com/naufkia/kyaaaa-php))
 
 ### What inside?
 
@@ -32,6 +33,9 @@ Berhubung ([Kyaaaa-PHP](https://github.com/naufkia/kyaaaa-php)) framework belum 
 3. import `donateapp_db.sql`
 4. run this php cli (commandline): `php kyaaaa`
 5. Open `http://localhost:5555` on your browser.
+
+### Demo
+* [https://sawer.nauf.space/](https://sawer.nauf.space/)
 
 ### Default Credential
 * Login link `http://localhost:5555/login`
