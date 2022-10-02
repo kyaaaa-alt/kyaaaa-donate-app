@@ -32,5 +32,10 @@ Kyaaaa-Donate-APP adalah sistem donasi pribadi dengan dukungan stream overlay da
 4. run this php cli (commandline): `php kyaaaa`
 5. Open `http://localhost:5555` on your browser.
 
+#### Default Credential
+* Login link `http://localhost:5555/login`
+* Email : `demo@demo.com`
+* Password : `demo`
+
 #### Buy me a coffe
 [!["Buy Me A Coffee"](https://nauf.space/orange_img.webp)](https://nauf.space/donate)
