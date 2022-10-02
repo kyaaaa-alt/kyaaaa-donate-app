@@ -6,7 +6,7 @@
         <div class="donate-amount-box">
 
             <?php $session = session();
-                if ($session->has('notif')) {
+                if ($session->has('error')) {
             ?>
             <div class="text-center mb-25" id="hideMe">
                 <span class="alert"><?= $session->getFlash('error'); ?></span>
