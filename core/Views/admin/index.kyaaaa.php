@@ -13,7 +13,7 @@
         <h4 class="mt-n5">Hi, <?= session()->get('name') ?></h4>
         <div class="card mt-n15">
             <div class="header mb-8">Profit</div>
-            <span class="profit mt-25 mb-10">Rp 500.000</span>
+            <span class="profit mt-25 mb-10"><?= Rp . ' ' . number_format($profit,0,',','.'); ?></span>
             <div class="footer mt-10"><?= $paid ?>/<?= $total ?> Donation</div>
         </div>
 
