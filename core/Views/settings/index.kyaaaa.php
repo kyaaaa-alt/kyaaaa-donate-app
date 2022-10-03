@@ -112,7 +112,8 @@
 
                 <form id="tripay" style="display: none;" action="<?= url('update_tripay') ?>" method="post">
                     <?php csrf()->tokenField(); ?>
-                    <p class="f12 mt-20">Get your key here : <a href="https://tripay.co.id" class="link">https://tripay.co.id</a></p>
+                    <p class="f12 mt-20 mb-n8">Get your key here : <a href="https://tripay.co.id" class="link">https://tripay.co.id</a></p>
+                    <p class="f12">Put this callback link to your tripay merchant : <a href="<?= url('callback') ?>" class="link"><?= url('callback') ?></a></p>
                     <div class="input-group">
                         <input autocomplete="off" type="text"  name="merchant_code" placeholder="Tripay Merchant Code" value="<?= esc($settings->merchant_code) ?>" required>
                     </div>
