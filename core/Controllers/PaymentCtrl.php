@@ -18,8 +18,6 @@ class PaymentCtrl {
     }
 
     public function do_donate() {
-//        header("Access-Control-Allow-Origin: *");
-//        header("Access-Control-Allow-Headers: *");
         $name = $this->request->post('name');
         $email = $this->request->post('email');
         $amount = $this->request->post('amount');
