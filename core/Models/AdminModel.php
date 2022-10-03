@@ -63,4 +63,12 @@ class AdminModel {
         return $query;
     }
 
+    public function total_paid_donation() {
+        $builder = DB::query('donations');
+        $builder->select('SUM(amount) as total');
+        $builder->where('status', 'PAID');
+        $query = $builder->get()[0]->total;
+        return $query;
+    }
+
 }
