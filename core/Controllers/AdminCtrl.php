@@ -55,6 +55,7 @@ class AdminCtrl {
         $data['title'] = 'Dashboard';
         $data['paid'] = $this->AdminModel->count_paid();
         $data['total'] = $this->AdminModel->count_all();
+        $data['profit'] = $this->AdminModel->total_paid_donation();
         $data['donations'] = $this->AdminModel->get_donations();
         $data['users'] = $this->AdminModel->get_users();
         return view('admin/index', $data);
