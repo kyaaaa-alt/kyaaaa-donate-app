@@ -9,6 +9,7 @@ Project ini dibuat menggunakan framework php buatan sendiri ([Kyaaaa-PHP Framewo
 
 ### What inside?
 
+* This project less than 5MB ✨
 * [Kyaaaa-PHP Framework](https://github.com/naufkia/kyaaaa-php) - Lightweight PHP Framework
 * [Sweetalert2](https://sweetalert2.github.io/) - Replacement for javascript popup boxes
 * [Pusher WebSocket](https://pusher.com/channels) - Realtime features to your apps.
