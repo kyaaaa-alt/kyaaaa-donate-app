@@ -1,4 +1,4 @@
-<div class="donate mt-20">
+<div class="donate">
     <div class="donate-black text-center">
         <a href="<?= url('dashboard') ?>">
             <img width="30" class="text-left mt-n10" src="<?= url('assets/img') ?>/back.svg">
