@@ -24,6 +24,15 @@ class PaymentCtrl {
         $msgs = $this->request->post('msgs');
         $private = $this->request->post('private');
 
+        if (profanity($name) == true || profanity($msgs) == true) {
+            echo json_encode([
+                    'success' => false,
+                    'invoice' => '',
+                    'msg' => 'Jangan berkata kasar kek gitu la'
+            ]);
+            exit;
+        }
+
         $payload = [
             'isDonation' => true,
             'name' => $name,
@@ -59,16 +68,15 @@ class PaymentCtrl {
                 echo json_encode([
                         'success' => false,
                         'invoice' => '',
-                        'msg' => 'Gagal membuat transaksi, silahkan coba lagi...']
-                );
+                        'msg' => 'Gagal membuat transaksi, silahkan coba lagi...'
+                ]);
             }
         } else {
             echo json_encode([
                     'success' => false,
                     'invoice' => '',
                     'msg' => $order->message
-                ]
-            );
+            ]);
         }
     }
 

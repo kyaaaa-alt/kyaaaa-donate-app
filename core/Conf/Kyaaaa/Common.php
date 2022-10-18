@@ -259,3 +259,33 @@ if ( !function_exists('redirectTo')) {
     }
 }
 
+if ( !function_exists('strposMultiple')) {
+    function strposMultiple($haystack, $needle, $offset = 0)
+    {
+        if (is_string($needle))
+            return strpos($haystack, $needle, $offset);
+        else {
+            $min = false;
+            foreach ($needle as $n) {
+                $pos = strpos($haystack, $n, $offset);
+
+                if ($min === false || $pos < $min) {
+                    $min = $pos;
+                }
+            }
+            return $min;
+        }
+    }
+}
+
+if ( !function_exists('profanity')) {
+    function profanity($string) {
+        $arr = explode(" ", strtolower($string));
+        $profanity = ['anjing','babi','kunyuk','bajingan','asu','bangsat','kampret','kontol','memek','ngentot','pentil','perek','pepek','pecun','bencong','banci','maho','gila','sinting','tolol','sarap','setan','lonte','hencet','taptei','kampang','pilat','keparat','bejad','gembel','brengsek','tai','anjrit','bangsat','fuck','tetek','ngulum','jembut','totong','kolop','pukimak','bodat','heang','jancuk','burit','titit','nenen','bejat','silit','sempak','fucking','asshole','bitch','penis','vagina','klitoris','kelentit','borjong','dancuk','pantek','taek','itil','teho','bejat','pantat','bagudung','babami','kanciang','bungul','idiot','kimak','henceut','kacuk','blowjob','pussy','dick','damn','ass','ajg','goblok','goblog','b4b1','4nj','m3m3k','4su','k0nt','ng3n','1til','1t1l','geblek','b4ngs','kimak','tempik','j3mbut',s3t,'t1t','g0bl','t0l','t4','p3n','v4g','j4n'];
+        foreach ($arr as $word) {
+            if (strposMultiple($word, $profanity) !== false) {
+                return true;
+            }
+        }
+    }
+}
