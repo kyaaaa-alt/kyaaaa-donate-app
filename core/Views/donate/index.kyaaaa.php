@@ -113,7 +113,7 @@
                     <?= $msgs ?>
                 </div>
                 <div class="contributors-footer text-muted">
-                    <?= $date ?>
+                    <?= time_elapsed($date) ?>
                 </div>
             </div>
         <?php } ?>
