@@ -42,7 +42,7 @@
                     <?= $msgs ?>
                 </div>
                 <div class="contributors-footer text-muted">
-                    <?= $date ?>
+                    <?= date('d-m-Y H:i:s', strtotime($date)) ?>
                 </div>
             </div>
         <?php } ?>
