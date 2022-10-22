@@ -65,7 +65,7 @@ class AdminCtrl {
         $data['title'] = 'Settings';
         $data['settings'] = $this->AdminModel->get_settings();
         $data['users'] = $this->AdminModel->get_users();
-        return view('settings/index', $data);
+        return view('admin/settings/index', $data);
     }
 
     public function update_profile() {
