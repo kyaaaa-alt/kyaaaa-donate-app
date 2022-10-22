@@ -9,7 +9,6 @@ class Routes {
         $router->get('/', [\Core\Controllers\DonateCtrl::class,'index']);
 
         $router->get('/donate_notification', [\Core\Controllers\DonateCtrl::class,'donate_notification']);
-        $router->get('/test_notification', [\Core\Controllers\DonateCtrl::class,'test_notification']);
 
         $router->get('/running_text', [\Core\Controllers\DonateCtrl::class,'running_text']);
 
@@ -33,6 +32,9 @@ class Routes {
         $router->get('/dashboard/settings', [\Core\Controllers\AdminCtrl::class,'settings'])
             ->middleware('\Core\Filter\Auth#admin');
 
+        $router->post('/test_notification', [\Core\Controllers\AdminCtrl::class,'test_notification'])
+            ->middleware('\Core\Filter\Auth#admin');
+
         $router->post('/update_profile', [\Core\Controllers\AdminCtrl::class,'update_profile'])
             ->middleware('\Core\Filter\Auth#admin')
             ->middleware('\Core\Filter\CSRF#update');
@@ -48,7 +50,6 @@ class Routes {
         $router->post('/update_pusher', [\Core\Controllers\AdminCtrl::class,'update_pusher'])
             ->middleware('\Core\Filter\Auth#admin')
             ->middleware('\Core\Filter\CSRF#update');
-
 
         $router->run();
     }

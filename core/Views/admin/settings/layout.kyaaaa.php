@@ -11,4 +11,6 @@
     <?= $content; ?>
 </body>
 <script src="<?= url('assets/js') ?>/settings.js"></script>
+<script src="<?= url('assets/js') ?>/sweetalert2.all.min.js"></script>
+<script src="<?= url('assets/js') ?>/swal_overlay_test.js"></script>
 </html>

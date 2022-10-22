@@ -95,7 +95,7 @@
                     <p class="">Stream Overlay</p>
                     <p class="f12 mt-n10">Notification : <a href="<?= url('donate_notification') ?>" target="_blank" class="link"><?= url('donate_notification') ?></a></p>
                     <p class="f12 mt-n15">Running Text : <a href="<?= url('running_text') ?>" target="_blank" class="link" ><?= url('running_text') ?></a></p>
-                    <a class="testbtn mb-10" href="<?= url('test_notification') ?>" onclick="showPusher()">
+                    <a class="testbtn mb-10" href="#/" onclick="doOverlayTest('<?= url() ?>')">
                         Test Send Donate Overlay
                     </a>
                     <div class="file-upload mb-5 mr-15">

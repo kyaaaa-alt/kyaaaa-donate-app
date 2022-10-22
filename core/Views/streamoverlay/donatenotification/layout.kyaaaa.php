@@ -112,7 +112,7 @@
 
 </head>
 
-<body onload="show_container()">
+<body>
 <input type="hidden" id="donasi" value="1000000000"></input>
 
 <div class="container" style="display: none;">
@@ -130,39 +130,39 @@
     elContainer.style.display = 'none';
     elContainer.style.opacity = 0;
 
-    var start = anime({
-        targets: '.container',
-        opacity: 1,
-        duration: 800,
-        easing: "easeInExpo",
-        complete: function() {
-            var msg = new SpeechSynthesisUtterance();
-            msg.text = document.getElementById("amount").innerHTML + ' dari ' + document.getElementById("name").innerHTML + ' katanya ' + document.getElementById("msgs").innerHTML;
-            msg.volume = 1;
-            msg.rate = 1;
-            msg.pitch = 1;
-            msg.lang  =  'id-ID';
-            window.speechSynthesis.speak(msg);
-            msg.onend = function(event) {
-                notifsound.muted = true;
-                notifsound.pause();
-                notifsound.currentTime = 0;
-                notifsound.muted = false;
-                notifsound.volume = 1;
-                notifsound.play();
-                var durasi = notifsound.duration;
-                anime({
-                    targets: '.container',
-                    opacity: 0,
-                    duration: 1500,
-                    easing: "easeOutExpo",
-                    delay: (el, i) => (durasi * 1000) - 1500 + (50 * i),
-                });
-            }
-        }
-    });
-
     function show_container() {
+        var start = anime({
+            targets: '.container',
+            opacity: 1,
+            duration: 800,
+            easing: "easeInExpo",
+            complete: function() {
+                var msg = new SpeechSynthesisUtterance();
+                msg.text = document.getElementById("amount").innerHTML + ' dari ' + document.getElementById("name").innerHTML + ' katanya ' + document.getElementById("msgs").innerHTML;
+                msg.volume = 1;
+                msg.rate = 1;
+                msg.pitch = 1;
+                msg.lang  =  'id-ID';
+                window.speechSynthesis.speak(msg);
+                msg.onend = function(event) {
+                    notifsound.muted = true;
+                    notifsound.pause();
+                    notifsound.currentTime = 0;
+                    notifsound.muted = false;
+                    notifsound.volume = 1;
+                    notifsound.play();
+                    var durasi = notifsound.duration;
+                    anime({
+                        targets: '.container',
+                        opacity: 0,
+                        duration: 1500,
+                        easing: "easeOutExpo",
+                        delay: (el, i) => (durasi * 1000) - 1500 + (50 * i),
+                    });
+                }
+            }
+        });
+
         elContainer.style.display = 'inline-block';
         ping.muted = true;
         ping.pause();
